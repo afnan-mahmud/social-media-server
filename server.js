@@ -5,6 +5,7 @@ const cors = require("cors");
 // Internal Imports
 const connectDB = require("./db/InitializeDb");
 const signupRouter = require("./routers/signupRouter");
+const loginRouter = require("./routers/loginRouter");
 
 // Initialize
 const app = express();
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 connectDB();
 
 // Router
-// app.use("/login", loginRouter);
+app.use("/login", loginRouter);
 app.use("/signup", signupRouter);
 
 //Server Port
